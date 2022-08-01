@@ -1,0 +1,34 @@
+{
+  "name": "@loloof64/stockfish",
+  "version": "0.1.0",
+  "description": "Use Stockfish chess engine in your NativeScript android application.",
+  "main": "index",
+  "typings": "index.d.ts",
+  "nativescript": {
+    "platforms": {
+      "ios": "6.0.0",
+      "android": "6.0.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loloof64/nativescript-plugins.git"
+  },
+  "keywords": [
+    "NativeScript",
+    "JavaScript",
+    "TypeScript",
+    "Android"
+  ],
+  "author": {
+    "name": "Laurent Bernabe",
+    "email": "laurent.bernabe@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/loloof64/nativescript-plugins/issues"
+  },
+  "license": "GPLv3",
+  "homepage": "https://github.com/loloof64/nativescript-plugins",
+  "readmeFilename": "README.md",
+  "bootstrapper": "@nativescript/plugin-seed"
+}

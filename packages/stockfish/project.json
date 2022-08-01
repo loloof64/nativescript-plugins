@@ -1,0 +1,64 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/stockfish",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/stockfish",
+        "tsConfig": "packages/stockfish/tsconfig.json",
+        "packageJson": "packages/stockfish/package.json",
+        "main": "packages/stockfish/index.d.ts",
+        "assets": [
+          "packages/stockfish/*.md",
+          "packages/stockfish/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/stockfish/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts stockfish"],
+        "parallel": false
+      },
+      "outputs": ["dist/packages/stockfish"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages stockfish"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/stockfish/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
