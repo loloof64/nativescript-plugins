@@ -5,8 +5,43 @@
     </Page.actionBar>
     <StackLayout class="p-20">
         <ScrollView class="h-full">
-          <StackLayout>
-            <Button text="Test stockfish" tap="{{ testIt }}" class="btn btn-primary"/>
+          <StackLayout orientation="vertical">
+            
+            <Label text="Position" horizontalAlignment="center" verticalAlignment="center" 
+              fontSize="25"
+            />
+            <TextField
+            horizontalAlignment="center" verticalAlignment="center"
+            hint="Position (FEN notation) to evaluate"
+            />
+
+            <Label text="Thinking time" 
+              horizontalAlignment="center" verticalAlignment="center"
+              fontSize="25"
+            />
+            <Slider value="500" minValue="500" maxValue="3000" valueChange="onSliderValueChanged" width="500" 
+            horizontalAlignment="center" verticalAlignment="center"/>
+            <Label 
+            text="500 (ms)" horizontalAlignment="center" verticalAlignment="center"
+            fontSize="20"
+             />
+          
+            
+            <Button text="Evaluate" horizontalAlignment="center" verticalAlignment="center" 
+            tap="{{ evaluate }}" class="btn btn-primary"/>
+
+
+            <ScrollView>
+              <TextView
+                borderLeftWidth="1"
+                borderRightWidth="1"
+                borderTopWidth="1"
+                borderBottomWidth="1"
+                borderRadius="20"
+                editable="false"
+                hint="Outputs from Stockfish"
+              />
+            </ScrollView>
 
           </StackLayout>
         </ScrollView>
