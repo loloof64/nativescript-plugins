@@ -20,7 +20,7 @@
             <Button
             text="Paste FEN"
             horizontalAlignment="center" verticalAlignment="center" 
-            tap="pasteFen" class="btn btn-success"
+            tap="pasteFen" class="rounded-full bg-green-200"
             />
 
             <Label text="Thinking time" 
@@ -39,6 +39,11 @@
             <Button 
               text="Evaluate" horizontalAlignment="center" verticalAlignment="center" 
               tap="{{evaluate}}" class="btn btn-primary"
+            />
+
+            <Button 
+              text="Close stockfish" horizontalAlignment="center" verticalAlignment="center" 
+              tap="{{closeStockfish}}" class="btn btn-primary"
             />
 
 

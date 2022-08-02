@@ -6,6 +6,7 @@ platforms/
 # NativeScript Template
 *.js.map
 *.js
+!src/plugin-demos/stockfish-worker.js
 !webpack.config.js
 
 # Logs
