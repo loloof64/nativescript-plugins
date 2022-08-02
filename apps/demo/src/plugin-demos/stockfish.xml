@@ -7,28 +7,39 @@
         <ScrollView class="h-full">
           <StackLayout orientation="vertical">
             
-            <Label text="Position" horizontalAlignment="center" verticalAlignment="center" 
+            <Label 
+              text="Position" horizontalAlignment="center" verticalAlignment="center" 
               fontSize="25"
             />
             <TextField
-            horizontalAlignment="center" verticalAlignment="center"
-            hint="Position (FEN notation) to evaluate"
+              horizontalAlignment="center" verticalAlignment="center"
+              hint="Position (FEN notation) to evaluate"
+              text="{{positionFen}}"
+              textChange="onPositionChanged"
+            />
+            <Button
+            text="Paste FEN"
+            horizontalAlignment="center" verticalAlignment="center" 
+            tap="pasteFen" class="btn btn-success"
             />
 
             <Label text="Thinking time" 
               horizontalAlignment="center" verticalAlignment="center"
               fontSize="25"
             />
-            <Slider value="500" minValue="500" maxValue="3000" valueChange="onSliderValueChanged" width="500" 
-            horizontalAlignment="center" verticalAlignment="center"/>
+            <Slider value="{{thinkingTimeMs}}" minValue="500" maxValue="3000" 
+              valueChange="{{onSliderValueChanged}}" width="500" 
+              horizontalAlignment="center" verticalAlignment="center"/>
             <Label 
-            text="500 (ms)" horizontalAlignment="center" verticalAlignment="center"
-            fontSize="20"
+              text="{{`${thinkingTimeMs} (ms)`}}" horizontalAlignment="center" verticalAlignment="center"
+              fontSize="20"
              />
           
             
-            <Button text="Evaluate" horizontalAlignment="center" verticalAlignment="center" 
-            tap="{{ evaluate }}" class="btn btn-primary"/>
+            <Button 
+              text="Evaluate" horizontalAlignment="center" verticalAlignment="center" 
+              tap="{{evaluate}}" class="btn btn-primary"
+            />
 
 
             <ScrollView>
